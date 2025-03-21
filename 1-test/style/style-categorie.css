@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0F1628;
+}
+
+main {
+  background-image: url(../../img/img-page-2.webp);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+h1 {
+  color: #D9DBDE;
+  font-family: "Abril Fatface", serif;
+  font-weight: 900;
+  font-size: 64px;
+}
+
+div,
+button {
+  width: 720px;
+  border-radius: 8px;
+}
+
+div {
+  background-color: rgba(15, 22, 40, 0.5);
+  backdrop-filter: blur(2px);
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  height: 80px;
+  background-color: #0F1628;
+  color: #F5446A;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  transition: transform var(--speed-transition),
+    background-color var(--speed-transition),
+    color var(--speed-transition);
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: #F5446A;
+  color: #0F1628;
+}
+
+:root {
+  --speed-transition: 0.4s;
+}
