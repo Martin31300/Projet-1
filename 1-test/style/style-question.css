@@ -105,6 +105,7 @@ h2 {
 }
 
 button {
+  display: none;
   background-color: #F5446A;
   border-radius: 8px;
   color: #0F1628;
