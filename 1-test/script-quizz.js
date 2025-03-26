@@ -89,13 +89,13 @@ function displayQuestion() { //Déclaration de la fonction displayQuestion(), qu
     //On crée une constante questionData qui stocke l'objet correspondant à la question actuelle.
     //quizData est un tableau d'objets contenant toutes les questions du quiz.
     //currentQuestion est un index qui permet d’accéder à la bonne question dans le tableau.
-    // Exemple :
-    //Si currentQuestion = 0, questionData sera { question: "Quelle est la capitale du Brésil ?", answers: ["Paris", "Londres", "Brasilia", "Madrid"], image: "../../img/img-bresil.webp" }.
+    // Exemple: Si currentQuestion = 0, questionData sera { question: "Quelle est la capitale du Brésil ?", answers: ["Paris", "Londres", "Brasilia", "Madrid"], image: "../../img/img-bresil.webp" }.
 
     document.querySelector("h1").innerText = questionData.question;
     //On sélectionne l'élément <h1> dans la page HTML et on met à jour son texte (innerText) avec la question actuelle.
     //Avant: <h1>Quelle est la capitale du Brésil ?</h1>
     //Après(si la question change) : <h1>Quelle est la capitale du Canada ?</h1>
+
     document.querySelector("img").src = questionData.image;
     //On sélectionne l'élément <img> et on change sa source (src) pour afficher l'image associée à la question.
     //Avant: <img src="../../img/img-bresil.webp" alt="">

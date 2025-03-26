@@ -97,6 +97,11 @@ div:hover {
   background-color: #0F1628;
 }
 
+div:active {
+  background-color: #F5446A;
+  /* Changement de couleur au clic */
+}
+
 h2 {
   font-family: "roboto", sans-serif;
   color: #F5446A;

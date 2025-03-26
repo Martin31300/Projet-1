@@ -5,6 +5,7 @@
 
 body {
   background-color: #0F1628;
+  font-family: "Roboto", sans-serif;
 }
 
 main {
@@ -47,9 +48,7 @@ button {
   color: #F5446A;
   font-family: "Roboto", sans-serif;
   font-size: 24px;
-  transition: transform var(--speed-transition),
-    background-color var(--speed-transition),
-    color var(--speed-transition);
+  transition: transform var(--speed-transition);
 }
 
 button:hover {

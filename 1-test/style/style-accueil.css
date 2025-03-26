@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --speed: 0.4s;
+  --shadow: 0px 0px 40px #F5446A;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../img/img-Accueil-quizz.svg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+div {
+  background-color: rgba(15, 22, 40, 0.5);
+  backdrop-filter: blur(2px);
+  height: 180px;
+  width: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: transform var(--speed),
+    background-color var(--speed),
+    shadow var(--speed);
+}
+
+div:hover {
+  transform: scale(1.1);
+  background-color: #0F1628;
+  box-shadow: var(--shadow);
+  border: solid 4px #F5446A;
+}
+
+h1 {
+  color: #D9DBDE;
+  font-family: "Abril Fatface", serif;
+  font-weight: 900;
+  font-size: 64px;
+  transition: color var(--speed);
+}
+
+h1:hover {
+  color: #F5446A;
+}
