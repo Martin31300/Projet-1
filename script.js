@@ -23,13 +23,6 @@ const quizzData = [
 
 let currentQuestion = 0;
 
-function nextTheme() {
-    currentTheme = "history";
-    currentQuestion = 0;
-
-    displayQuestion();
-}
-
 function nextQuestion() {
     currentQuestion++;
 

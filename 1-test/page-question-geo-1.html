@@ -48,3 +48,72 @@
 </body>
 
 </html>
+
+<!--const btn = document.querySelector("#next-button");
+const answers = document.querySelectorAll("main div");
+
+for (const answer of answers) {
+    answer.addEventListener("click", function () {
+        btn.style.display = "initial";
+
+    })
+}
+
+let currentQuestion = 0;
+
+const quizzData = [
+    {
+        question: "Quelle est la capitale du Brésil ?",
+        answers: ["Paris", "Londres", "Brasilia", "Tokyo"],
+        correct: 2,
+        img: "../img/img-bresil.webp"
+    },
+    {
+        question: "Dans quel continent sur trouve les Fidji ?",
+        answers: ["Océanie", "Antarctique", "Amérique du sud", "Afrique"],
+        correct: 0,
+        image: "../img/fidji.jpg"
+    },
+    {
+        question: "Dans quel pays se trouve la pyramide de Chichen Itza ?",
+        answers: ["Pérou", "Mexique", "Costa-Rica", "Colombie"],
+        correct: 1,
+        image: "../img/pyramide.jpg"
+    },
+];
+
+function displayQuestion() {
+
+    const questionData = quizzData[currentQuestion];
+
+    document.querySelector("h1").innerText = questionData.question;
+    document.querySelector("img").src = questionData.image;
+
+    const answerDivs = document.querySelectorAll("main div");
+
+    answerDivs.forEach((div, index) => {
+        div.innerHTML = `<h2>${questionData.answers[index]}</h2>`;
+    });
+
+
+}
+
+function nextQuestion() {
+    btn.style.display = "none";
+    currentQuestion++;
+    if (currentQuestion >= quizzData.length) {
+        alert("Quizz terminé !");
+        return;
+    }
+
+    displayQuestion(); // Affiche la nouvelle question
+    startTimer(); // Relance le timer
+}
+
+// Ajout d'un écouteur d'événement pour le bouton "Question suivante"
+document.getElementById('next-button').addEventListener('click', nextQuestion);
+// Appeler la fonction pour démarrer le timer quand la page charge
+startTimer();
+
+// Lancement du quiz au chargement de la page
+displayQuestion();-->
