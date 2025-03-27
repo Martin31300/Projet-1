@@ -12,8 +12,8 @@ h1 {
   position: absolute;
   font-size: 36px;
   color: #D9DBDE;
-  font-family: "Abril Fatface", serif;
-  font-weight: 900;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: 400;
   z-index: 1;
 }
 
@@ -84,6 +84,15 @@ div {
     background-color var(--transition-speed);
 }
 
+.selected {
+  background: #F5446A;
+}
+
+.selected>h2 {
+
+  color: #0F1628 !important;
+}
+
 :root {
   --btn-scale: 1.1;
   --transition-speed: 0.4s;
@@ -94,7 +103,8 @@ div:hover {
   transform: scale(var(--btn-scale));
   box-shadow: var(--shadow);
   border: solid 2px #F5446A;
-  background-color: #0F1628;
+
+  cursor: pointer;
 }
 
 div:active {
@@ -111,10 +121,55 @@ h2 {
 
 button {
   display: none;
-  background-color: #F5446A;
+  border: solid 2px #F5446A;
+  background-color: #0F1628;
   border-radius: 8px;
-  color: #0F1628;
+  color: #F5446A;
   height: 84px;
   font-family: "roboto", sans-serif;
   font-size: 24px;
+  font-weight: 600;
+  grid-column: 2;
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed),
+    border var(--transition-speed),
+    background-color var(--transition-speed);
+}
+
+button:hover {
+  transform: scale(var(--btn-scale));
+  box-shadow: var(--shadow);
+  border: solid 2px #F5446A;
+  cursor: pointer;
+}
+
+#score-dialog {
+  font-family: "roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 20px;
+  border: 2px solid #F5446A;
+  border-radius: 8px;
+  background-color: #0F1628;
+  color: #D9DBDE;
+  text-align: center;
+  width: 720px;
+  height: 320px;
+  box-shadow: var(--shadow);
+}
+
+#titre-dialog {
+  font-size: 36px;
+  color: #D9DBDE;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: 400;
+}
+
+#close-button {
+  background-color: #F5446A;
+  color: #0F1628;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }

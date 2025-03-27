@@ -1,4 +1,4 @@
-
+let score = 0;
 
 const quizzData = [
     {
@@ -13,42 +13,42 @@ const quizzData = [
         correct: 0,
         image: "../img/fidji.jpg"
     },
-    {
-        question: "Dans quel pays se trouve la pyramide de Chichen Itza ?",
-        answers: ["Pérou", "Mexique", "Costa-Rica", "Colombie"],
-        correct: 1,
-        image: "../img/pyramide.jpg"
-    },
-    {
-        question: "Quelle est la capitale de la Colombie ?",
-        answers: ["Marseille", "Bogota", "Kinshasa", "Madrid"],
-        correct: 1,
-        image: "../img/colombie.jpg"
-    },
-    {
-        question: "Quelle est la capitale du Ghana ?",
-        answers: ["Mexico", "Alger", "Angoulême", "Accra"],
-        correct: 3,
-        image: "../img/ghana.jpg"
-    },
-    {
-        question: "Citez un pays traversé par la Cordillère des Andes",
-        answers: ["Pérou", "Argentine", "Mexique", "Colombie"],
-        correct: 0,
-        image: "../img/vue-cordillère-andes-depuis-avion-e1509451488542.jpg"
-    },
-    {
-        question: "Dans quel pays se trouve le Parthénon ?",
-        answers: ["Malaisie", "Thaïlande", "Grèce", "Tunisie"],
-        correct: 2,
-        image: "../img/parthenon_1200.jpg"
-    },
-    {
-        question: "Citez un pays frontalier à la France",
-        answers: ["Italie", "Portugal", "Costa-Rica", "Colombie"],
-        correct: 0,
-        image: "../img/France.jpg"
-    },
+    // {
+    //     question: "Dans quel pays se trouve la pyramide de Chichen Itza ?",
+    //     answers: ["Pérou", "Mexique", "Costa-Rica", "Colombie"],
+    //     correct: 1,
+    //     image: "../img/pyramide.jpg"
+    // },
+    // {
+    //     question: "Quelle est la capitale de la Colombie ?",
+    //     answers: ["Marseille", "Bogota", "Kinshasa", "Madrid"],
+    //     correct: 1,
+    //     image: "../img/colombie.jpg"
+    // },
+    // {
+    //     question: "Quelle est la capitale du Ghana ?",
+    //     answers: ["Mexico", "Alger", "Angoulême", "Accra"],
+    //     correct: 3,
+    //     image: "../img/ghana.jpg"
+    // },
+    // {
+    //     question: "Citez un pays traversé par la Cordillère des Andes",
+    //     answers: ["Pérou", "Argentine", "Mexique", "Colombie"],
+    //     correct: 0,
+    //     image: "../img/vue-cordillère-andes-depuis-avion-e1509451488542.jpg"
+    // },
+    // {
+    //     question: "Dans quel pays se trouve le Parthénon ?",
+    //     answers: ["Malaisie", "Thaïlande", "Grèce", "Tunisie"],
+    //     correct: 2,
+    //     image: "../img/parthenon_1200.jpg"
+    // },
+    // {
+    //     question: "Citez un pays frontalier à la France",
+    //     answers: ["Italie", "Portugal", "Costa-Rica", "Colombie"],
+    //     correct: 0,
+    //     image: "../img/France.jpg"
+    // },
 ];
 
 let currentQuestion = 0;
@@ -90,6 +90,12 @@ function displayQuestion() {
 
     <button id="next-button">Question suivante</button>
   </main>
+
+  <dialog id="score-dialog">
+    <h1 id="titre-dialog">Quiz terminé !</h1>
+    <p id="score-message"></p>
+    <button id="close-button">Retourner à l'accueil</button>
+  </dialog>
     `
     document.querySelector("body").innerHTML = newQuestion;
 
@@ -102,7 +108,12 @@ function displayQuestion() {
         //3-Rajouter un conteur de point sous forme de variable
         //4-peut etre une fonction
         if (currentQuestion >= quizzData.length) {
-            alert("Quizz terminé !");
+            // j'appelle dialog
+            const scoreMessage = `Ton score est de ${score}/${quizzData.length}`;
+            document.getElementById("score-message").textContent = scoreMessage;
+            // J'ouvre dialog
+            const dialog = document.getElementById('score-dialog');
+            dialog.showModal();
             return;
         }
         // startTimer();
@@ -162,13 +173,27 @@ function displayQuestion() {
 
     const answers = document.querySelectorAll("main div");
 
-    for (const answer of answers) {
+    answers.forEach((answer, index) => {
         answer.addEventListener("click", function () {
+            // Réinitialiser la sélection précédente
+            answers.forEach(a => {
+                a.classList.remove("selected");
+                a.style.backgroundColor = "";
+                a.querySelector("h2").style.color = "#F5446A";
+            });
+
+            // Sélectionner la réponse actuelle
+            this.classList.add("selected");
+            this.style.backgroundColor = "#F5446A";
+            this.querySelector("h2").style.color = "white";
             btn.style.display = "initial";
-            //1-récupérer la valeur de l'élément clické
-            //sans doute déplacer Tout ce bloc de code avant nextQuestion pour qu'il fonctionne
-        })
-    }
+
+            // Vérifier si la réponse est correcte
+            if (index === quizzData[currentQuestion].correct) {
+                score++; // Augmenter le score si la réponse est correcte
+            }
+        });
+    });
 
     document.getElementById('next-button').addEventListener('click', nextQuestion);
     // startTimer();
