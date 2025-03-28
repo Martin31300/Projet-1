@@ -7,7 +7,7 @@ body {
   background-color: #0F1628;
 }
 
-#chrono {
+#arrow {
   position: fixed;
   left: 0;
   top: 0;
@@ -27,12 +27,12 @@ body {
     box-shadow var(--speed-transition);
 }
 
-#chrono:hover {
+#arrow:hover {
   transform: scale(1.1);
   box-shadow: 0px 0px 20px #F5446A;
 }
 
-#chrono img {
+#arrow img {
   height: 50px;
   width: auto;
 }
@@ -103,4 +103,55 @@ a {
 :root {
   --speed-transition: 0.4s;
   --shadow: 0px 0px 20px #0F1628;
+}
+
+@media screen and (max-width: 670px) {
+  #arrow {
+    margin: 24px 0 0 24px;
+
+    height: 60px;
+    width: 60px;
+
+  }
+}
+
+@media screen and (max-width: 670px) {
+  #arrow img {
+    height: 28px;
+
+  }
+}
+
+@media screen and (max-width: 670px) {
+
+  div {
+    width: 90%;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .button {
+    width: 90vw;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  h1 {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+
+  div {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .button {
+    width: 90vw;
+  }
 }

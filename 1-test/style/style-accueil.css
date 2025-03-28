@@ -21,13 +21,17 @@ body {
 
 a {
   text-decoration: none;
+  text-align: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 div {
   background-color: rgba(15, 22, 40, 0.5);
   backdrop-filter: blur(2px);
-  height: 180px;
-  width: 720px;
+  min-height: 180px;
+  padding: 20px 0 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,4 +58,26 @@ h1 {
 
 h1:hover {
   color: #F5446A;
+}
+
+@media screen and (max-width: 670px) {
+  a {
+    margin-left: 5%;
+    margin-right: 5%;
+    min-height: 80px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  div {
+
+    min-height: 80px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  h1 {
+    font-size: 40px;
+  }
 }

@@ -107,3 +107,55 @@ h2 {
   font-family: "Roboto", sans-serif;
   font-size: 24px;
 }
+
+
+
+@media screen and (max-width: 920px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  nav {
+    padding: 12px 16px 12px 12px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  nav div {
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 400px;
+    margin: 12px 5% 10% 5%;
+    width: 90%;
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  div img {
+    height: 70px;
+
+  }
+}
+
+@media screen and (max-width: 670px) {
+  h2 {
+    font-size: 20px;
+
+  }
+}
+
+@media screen and (max-width: 920px) {
+  h2 {
+    font-size: 20px;
+  }
+}

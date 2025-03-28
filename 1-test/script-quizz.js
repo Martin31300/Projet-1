@@ -134,4 +134,3 @@ startTimer();
 
 // Lancement du quiz au chargement de la page
 displayQuestion();
-

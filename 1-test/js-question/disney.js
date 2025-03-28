@@ -2,53 +2,53 @@ let score = 0;
 
 const quizzData = [
     {
-        question: "Quelle est la capitale du Brésil ?",
-        answers: ["Paris", "Londres", "Brasilia", "Tokyo"],
-        correct: 2,
-        image: "../img/img-bresil.webp"
+        question: "Quel est le nom du méchant dans Mulan ?",
+        answers: ["Shan Yu", "LonYao", "Fa Zhou", "Li Shang"],
+        correct: 0, //Index réponse
+        image: "../../img/Mulan.jpg"
     },
     {
-        question: "Dans quel continent sur trouve les Fidji ?",
-        answers: ["Océanie", "Antarctique", "Amérique du sud", "Afrique"],
-        correct: 0,
-        image: "../img/fidji.jpg"
+        question: "Quel est le nom du lapin dans Bambi  ?",
+        answers: ["Ronno", "Fleur", "Féline", "Pan-Pan"],
+        correct: 3,
+        image: "../../img/Bambi.jpg"
     },
-    // {
-    //     question: "Dans quel pays se trouve la pyramide de Chichen Itza ?",
-    //     answers: ["Pérou", "Mexique", "Costa-Rica", "Colombie"],
-    //     correct: 1,
-    //     image: "../img/pyramide.jpg"
-    // },
-    // {
-    //     question: "Quelle est la capitale de la Colombie ?",
-    //     answers: ["Marseille", "Bogota", "Kinshasa", "Madrid"],
-    //     correct: 1,
-    //     image: "../img/colombie.jpg"
-    // },
-    // {
-    //     question: "Quelle est la capitale du Ghana ?",
-    //     answers: ["Mexico", "Alger", "Angoulême", "Accra"],
-    //     correct: 3,
-    //     image: "../img/ghana.jpg"
-    // },
-    // {
-    //     question: "Citez un pays traversé par la Cordillère des Andes",
-    //     answers: ["Pérou", "Argentine", "Mexique", "Colombie"],
-    //     correct: 0,
-    //     image: "../img/vue-cordillère-andes-depuis-avion-e1509451488542.jpg"
-    // },
-    // {
-    //     question: "Dans quel pays se trouve le Parthénon ?",
-    //     answers: ["Malaisie", "Thaïlande", "Grèce", "Tunisie"],
-    //     correct: 2,
-    //     image: "../img/parthenon_1200.jpg"
-    // },
-    // {
-    //     question: "Citez un pays frontalier à la France",
-    //     answers: ["Italie", "Portugal", "Costa-Rica", "Colombie"],
-    //     correct: 0,
-    //     image: "../img/France.jpg"
-    // },
+    {
+        question: "Quel est le nom du conseiller de Mufasa dans le Roi Lion ?",
+        answers: ["Simba", "Zazu", "Scar", "Rafiki"],
+        correct: 1,
+        image: "../../img/Roi-lion.jpg"
+    },
+    {
+        question: "En quelle année est sorti Blanche Neige ?",
+        answers: ["1937", "1956", "1980", "1995"],
+        correct: 0,
+        image: "../../img/Blanche-neige.jpg"
+    },
+    {
+        question: "Quel est le nom de l'Oncle Picsou ?",
+        answers: ["Fifi", "Zaza", "Balthazar", "Donald"],
+        correct: 2,
+        image: "../../img/picsou.png"
+    },
+    {
+        question: "Quel est le nom du petit ourson dans Frère des Ours ?",
+        answers: ["Denahi", "Koda", "Kenai", "Muche"],
+        correct: 1,
+        image: "../../img/les-freres-ours.jpg"
+    },
+    {
+        question: "Dans Toy Story , a qui appartient la réplique Vers : l'infini et l'au-delà !! ?",
+        answers: ["Woody", "Jessie", "Buttercup", "Buzz l'Eclair"],
+        correct: 1,
+        image: "../../img/toy-story.jpg"
+    },
+    {
+        question: "En quelle année Disney a racheté Marvel  ?",
+        answers: ["2019", "2015", "1991", "2005"],
+        correct: 0,
+        image: "../../img/marvel.jpg"
+    },
 ];
 
 let currentQuestion = 0;
@@ -91,10 +91,10 @@ function displayQuestion() {
     <button id="next-button">Question suivante</button>
   </main>
 
-  <dialog id="score-dialog">
+    <dialog id="score-dialog">
     <h1 id="titre-dialog">Quiz terminé !</h1>
     <p id="score-message"></p>
-    <button id="close-button">Retourner à l'accueil</button>
+    <a href="../accueil.html"><button id="close-button">Retourner à l'accueil</button></a>
   </dialog>
     `
     document.querySelector("body").innerHTML = newQuestion;
@@ -113,7 +113,7 @@ function displayQuestion() {
             document.getElementById("score-message").textContent = scoreMessage;
             // J'ouvre dialog
             const dialog = document.getElementById('score-dialog');
-            dialog.showModal();
+            dialog.style.display = "flex";
             return;
         }
         // startTimer();
@@ -201,4 +201,3 @@ function displayQuestion() {
 
 
 displayQuestion();
-
