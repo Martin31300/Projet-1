@@ -101,6 +101,8 @@ function displayQuestion() {
 
   const btn = document.querySelector("#next-button");
 
+  let timer;          // Variable pour le timer
+
   function nextQuestion() {
     btn.style.display = "none";
     currentQuestion++;
@@ -116,60 +118,61 @@ function displayQuestion() {
       dialog.style.display = "flex";
       return;
     }
-    // startTimer();
+    clearInterval(timer);
     displayQuestion();
 
   }
 
-  // let timeLeft = 10;// Temps initial (en secondes)
-  // let timer;          // Variable pour le timer
+  // Fonction pour démarrer le timer
+  function startTimer() {
 
-  // // Fonction pour démarrer le timer
-  // function startTimer() {
-  //     // Déclaration de la fonction startTimer().
-  //     //Elle est appelée chaque fois qu'on veut lancer ou réinitialiser le chronomètre.
+    // Déclaration de la fonction startTimer().
+    //Elle est appelée chaque fois qu'on veut lancer ou réinitialiser le chronomètre.
 
-  //     clearInterval(timer); //Réinitialise le timer précédent
-  //     //Stoppe le timer en cours avant d'en démarrer un nouveau.
-  //     //clearInterval(timer) empêche que plusieurs timers tournent en même temps.
-  //     //Cela évite un bug où plusieurs timers se superposeraient et feraient descendre le temps trop vite.
+    let timeLeft = 10;// Temps initial (en secondes)
+    console.log(timeLeft);
 
-  //     timeLeft = 10; //Remet le temps à 10 secondes
-  //     //Réinitialise le temps à 10 secondes au début de chaque nouvelle question.
-  //     //timeLeft est une variable globale qui stocke le temps restant.
+    clearInterval(timer); //Réinitialise le timer précédent
+    //Stoppe le timer en cours avant d'en démarrer un nouveau.
+    //clearInterval(timer) empêche que plusieurs timers tournent en même temps.
+    //Cela évite un bug où plusieurs timers se superposeraient et feraient descendre le temps trop vite.
 
-  //     document.getElementById("timer").innerText = timeLeft; //Affiche le temps restant
-  //     // Affiche immédiatement la valeur de timeLeft dans l'élément HTML ayant l'id = "timer".
-  //     //Cela permet de voir "10" affiché dès qu'une nouvelle question commence.
+    timeLeft = 10; //Remet le temps à 10 secondes
+    //Réinitialise le temps à 10 secondes au début de chaque nouvelle question.
+    //timeLeft est une variable globale qui stocke le temps restant.
+
+    document.getElementById("timer").innerText = timeLeft; //Affiche le temps restant
+    // Affiche immédiatement la valeur de timeLeft dans l'élément HTML ayant l'id = "timer".
+    //Cela permet de voir "10" affiché dès qu'une nouvelle question commence.
 
 
-  //     timer = setInterval(() => {// Décrémenter le temps toutes les 1 seconde
-  //         //Démarre un intervalle qui exécute une fonction toutes les 1000 ms(1 seconde).
-  //         //setInterval() est une fonction JavaScript qui répète une action à intervalles réguliers.
-  //         //timer est une variable qui stocke l'identifiant du timer pour pouvoir l'arrêter plus tard avec clearInterval(timer).
+    timer = setInterval(() => {// Décrémenter le temps toutes les 1 seconde
+      //Démarre un intervalle qui exécute une fonction toutes les 1000 ms(1 seconde).
+      //setInterval() est une fonction JavaScript qui répète une action à intervalles réguliers.
+      //timer est une variable qui stocke l'identifiant du timer pour pouvoir l'arrêter plus tard avec clearInterval(timer).
+      console.log(timeLeft);
+      timeLeft--;// Réduire le temps de 1
 
-  //         timeLeft--;// Réduire le temps de 1
+      document.getElementById("timer").innerText = timeLeft;// Mettre à jour l'affichage du timer
+      //Met à jour l'affichage du chronomètre dans la page à chaque seconde.
+      //Si timeLeft = 9, alors < p id = "timer" > 9</p >.
 
-  //         document.getElementById("timer").innerText = timeLeft;// Mettre à jour l'affichage du timer
-  //         //Met à jour l'affichage du chronomètre dans la page à chaque seconde.
-  //         //Si timeLeft = 9, alors < p id = "timer" > 9</p >.
+      if (timeLeft <= 0) { // Si le temps est écoulé
+        //Vérifie si le temps est écoulé.
+        //Quand timeLeft atteint 0, le chronomètre doit s'arrêter et passer à la question suivante.
+        timeLeft = 10;
+        clearInterval(timer); // Arrêter le timer, Cela évite que le compteur continue de descendre en négatif (-1, -2, -3, ...).
+        // Afficher un message (tu peux changer ça pour passer à la question suivante)
+        // Ajouter ici la logique pour passer à la question suivante
 
-  //         if (timeLeft <= 0) { // Si le temps est écoulé
-  //             //Vérifie si le temps est écoulé.
-  //             //Quand timeLeft atteint 0, le chronomètre doit s'arrêter et passer à la question suivante.
+        nextQuestion();//Passe automatiquement à la question suivante lorsque le temps est écoulé.
+        //nextQuestion() est une fonction(non définie ici) qui doit mettre à jour la page avec la prochaine question et réponses.
+      }
 
-  //             clearInterval(timer); // Arrêter le timer, Cela évite que le compteur continue de descendre en négatif (-1, -2, -3, ...).
-  //             // Afficher un message (tu peux changer ça pour passer à la question suivante)
-  //             // Ajouter ici la logique pour passer à la question suivante
-
-  //             nextQuestion();//Passe automatiquement à la question suivante lorsque le temps est écoulé.
-  //             //nextQuestion() est une fonction(non définie ici) qui doit mettre à jour la page avec la prochaine question et réponses.
-  //         }
-
-  //     }, 1000); // 1000 ms = 1 seconde
-  //     //Le 1000 représente l'intervalle de temps en millisecondes entre chaque exécution du code.
-  //     //Cela signifie que le code à l'intérieur de setInterval() s'exécutera toutes les 1 seconde.
-  // }
+    }, 1000); // 1000 ms = 1 seconde
+    //Le 1000 représente l'intervalle de temps en millisecondes entre chaque exécution du code.
+    //Cela signifie que le code à l'intérieur de setInterval() s'exécutera toutes les 1 seconde.
+  }
 
   const answers = document.querySelectorAll("main div");
 
@@ -196,7 +199,7 @@ function displayQuestion() {
   });
 
   document.getElementById('next-button').addEventListener('click', nextQuestion);
-  // startTimer();
+  startTimer();
 };
 
 
